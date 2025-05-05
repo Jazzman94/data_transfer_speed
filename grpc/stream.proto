@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+service StreamService {
+  // Server streaming
+  rpc ServerStream (Request) returns (stream Response);
+  
+  // Client streaming
+  rpc ClientStream (stream Request) returns (Response);
+  
+  // Bidirectional streaming
+  rpc BidirectionalStream (stream Request) returns (stream Response);
+}
+
+message Request {
+  string message = 1;
+}
+
+message Response {
+  string message = 1;
+}
